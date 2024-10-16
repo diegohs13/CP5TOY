@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Easy Toy - Adicionar Brinquedo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #6A0DAD;
+            background-image: url('/path/to/clouds-background.png'); /* Substitua pelo caminho da sua imagem de nuvens */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .register-container {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        .register-container h1 {
+            font-size: 2.5rem;
+            color: #32CD32; /* Verde brilhante */
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .btn {
+            border-radius: 20px;
+            padding: 0.75rem 1.25rem;
+            font-size: 1rem;
+        }
+
+        .btn-register {
+            background-color: #32CD32;
+            color: white;
+            border: none;
+        }
+
+        .btn-register:hover {
+            background-color: #28A828;
+        }
+
+        .btn-back {
+            background-color: #FFD700;
+            color: white;
+            border: none;
+        }
+
+        .btn-back:hover {
+            background-color: #FFC700;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .text-danger {
+            font-size: 0.9rem;
+        }
+
+        .alert-success {
+            border-radius: 10px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #6A0DAD;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h1>Adicionar Brinquedo</h1>
+
+    <!-- Mensagem de sucesso -->
+    <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Brinquedo adicionado com sucesso!</strong>
+        <a class="ms-2" href="/store">Voltar para Lista</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <form method="POST" th:action="@{/store/add}" th:object="${brinquedoDto}">
+        <!-- Token CSRF -->
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+        <!-- Nome do brinquedo -->
+        <div class="form-group">
+            <label for="nome_brinquedo">Nome do Brinquedo</label>
+            <input id="nome_brinquedo" type="text" th:field="*{nome_brinquedo}" class="form-control" placeholder="Nome do Brinquedo" required>
+            <div th:if="${#fields.hasErrors('nome_brinquedo')}" class="text-danger">
+                <p th:errors="*{nome_brinquedo}">Nome inválido</p>
+            </div>
+        </div>
+
+        <!-- Descrição -->
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" th:field="*{descricao}" class="form-control" placeholder="Descrição do Brinquedo" rows="3" required></textarea>
+            <div th:if="${#fields.hasErrors('descricao')}" class="text-danger">
+                <p th:errors="*{descricao}">Descrição inválida</p>
+            </div>
+        </div>
+
+        <!-- Classificação -->
+        <div class="form-group">
+            <label for="classificacao">Classificação</label>
+            <input id="classificacao" type="text" th:field="*{classificacao}" class="form-control" placeholder="Classificação" required>
+            <div th:if="${#fields.hasErrors('classificacao')}" class="text-danger">
+                <p th:errors="*{classificacao}">Classificação inválida</p>
+            </div>
+        </div>
+
+        <!-- Preço -->
+        <div class="form-group">
+            <label for="preco">Preço (R$)</label>
+            <input id="preco" type="number" step="0.01" th:field="*{preco}" class="form-control" placeholder="Preço do Brinquedo" required>
+            <div th:if="${#fields.hasErrors('preco')}" class="text-danger">
+                <p th:errors="*{preco}">Preço inválido</p>
+            </div>
+        </div>
+
+        <!-- Botões -->
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-register">Adicionar</button>
+            <button type="button" class="btn btn-back" th:onclick="|window.location.href='@{/store}'|">Voltar</button>
+        </div>
+
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
