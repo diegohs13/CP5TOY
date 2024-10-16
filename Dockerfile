@@ -1,21 +1,16 @@
-FROM maven:3.9-openjdk-21 AS build
+FROM ubuntu:latest AS build
 
-WORKDIR /app
+RUN apt-get update
+RUN apt-get install openjdk-21-jdk -y
 COPY . .
 
-
-RUN mvn clean package
-
+RUN apt-get install maven -y
+RUN mvn clean install
 
 FROM openjdk:21-jdk-slim
 
-WORKDIR /app
-
-
 EXPOSE 8080
 
+COPY --from=build /target/*.jar /app.jar
 
-COPY --from=build /app/target/*.jar app.jar
-
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "/app.jar"]
