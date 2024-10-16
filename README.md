@@ -32,7 +32,7 @@ O usuario pode cadastrar um brinquedo no sistema, inserindo os seguintes dados:
 
 ## How to use
 - Configuração do spring initializer.
-  ![spring](pringConfig.png)
+  ![spring](springConfig.png)
 
 - Configure o arquivo `application.properties` com as configurações do seu banco de dados.
   ![properties](img/AppProp.png)
