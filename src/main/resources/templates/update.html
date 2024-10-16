@@ -9,7 +9,6 @@
     <style>
         body {
             background-color: #6A0DAD;
-            background-image: url('/path/to/clouds-background.png'); /* Substitua pelo caminho da sua imagem de nuvens */
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
@@ -31,7 +30,7 @@
 
         .form-container h2 {
             font-size: 2.5rem;
-            color: #32CD32; /* Verde brilhante */
+            color: #32CD32;
             margin-bottom: 1.5rem;
         }
 
@@ -76,19 +75,17 @@
     <h2>Atualizar Preço</h2>
 
     <form method="post" th:action="@{/store/{id}/update(id=${brinquedo.id})}" th:object="${brinquedo}">
-        <!-- Nome do brinquedo (somente leitura) -->
+
         <div class="form-group">
             <label for="nome_brinquedo">Nome</label>
             <input type="text" class="form-control" id="nome_brinquedo" th:field="*{nome_brinquedo}" readonly>
         </div>
 
-        <!-- Campo para novo preço -->
         <div class="form-group">
             <label for="preco">Novo Preço</label>
             <input type="number" step="0.01" class="form-control" id="preco" th:field="*{preco}" placeholder="Digite o novo preço">
         </div>
 
-        <!-- Botão de Atualizar -->
         <div class="d-grid">
             <button type="submit" class="btn btn-atualizar btn-lg">Atualizar</button>
         </div>

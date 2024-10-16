@@ -9,7 +9,6 @@
     <style>
         body {
             background-color: #6A0DAD;
-            background-image: url('/path/to/clouds-background.png'); /* Substitua pelo caminho da sua imagem de nuvens */
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
@@ -31,7 +30,7 @@
 
         .register-container h1 {
             font-size: 2.5rem;
-            color: #32CD32; /* Verde brilhante */
+            color: #32CD32;
             margin-bottom: 1.5rem;
         }
 
@@ -93,7 +92,6 @@
 <div class="register-container">
     <h1>Adicionar Brinquedo</h1>
 
-    <!-- Mensagem de sucesso -->
     <div th:if="${success}" class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Brinquedo adicionado com sucesso!</strong>
         <a class="ms-2" href="/store">Voltar para Lista</a>
@@ -104,7 +102,7 @@
         <!-- Token CSRF -->
         <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
-        <!-- Nome do brinquedo -->
+
         <div class="form-group">
             <label for="nome_brinquedo">Nome do Brinquedo</label>
             <input id="nome_brinquedo" type="text" th:field="*{nome_brinquedo}" class="form-control" placeholder="Nome do Brinquedo" required>

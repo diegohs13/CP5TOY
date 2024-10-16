@@ -8,7 +8,7 @@ public class Cp5secApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Cp5secApplication.class, args);
-		System.out.println("SpringBoot rodando na porta 8080");
+		System.out.println("SpringBoot iniciado!");
 	}
 
 }

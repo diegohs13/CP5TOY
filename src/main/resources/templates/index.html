@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Easy Store - Brinquedos</title>
+    <title>Easy Toy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f0f9e8; /* Fundo verde clarinho */
+            background-color: #f0f9e8;
             font-family: 'Comic Sans MS', sans-serif;
             color: #444;
         }
 
         .navbar {
-            background-color: #6A0DAD; /* Roxo predominante */
+            background-color: #6A0DAD;
             padding: 1rem;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
@@ -25,20 +25,20 @@
         }
 
         .navbar-brand:hover {
-            color: #c0f080 !important; /* Verde suave */
+            color: #c0f080 !important;
         }
 
         .hero-section {
             padding: 60px 0;
             text-align: center;
             background-image: url('https://www.transparenttextures.com/patterns/arches.png');
-            background-color: #c0f080; /* Fundo verde claro */
+            background-color: #c0f080;
         }
 
         .hero-section h1 {
             font-size: 3.5rem;
             font-weight: bold;
-            color: #6A0DAD; /* Roxo predominante */
+            color: #6A0DAD;
         }
 
         .hero-section p {
@@ -48,7 +48,7 @@
         }
 
         .btn-primary, .btn-outline-primary {
-            background-color: #6A0DAD; /* Roxo predominante */
+            background-color: #6A0DAD;
             border-color: #6A0DAD;
             color: white;
             font-size: 1.1rem;
@@ -62,30 +62,9 @@
         }
 
         .btn-primary:hover, .btn-outline-primary:hover {
-            background-color: #8755B6; /* Roxo mais claro */
+            background-color: #8755B6;
             border-color: #8755B6;
             color: white;
-        }
-
-        .cloud {
-            background-image: url('https://www.transparenttextures.com/patterns/clouds.png');
-            background-color: #f0f9e8; /* Fundo verde clarinho */
-            padding: 40px 0;
-        }
-
-        .locked-section {
-            background-color: #F8E5F1; /* Rosa clarinho */
-            padding: 50px 0;
-            text-align: center;
-            border-radius: 15px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 40px;
-        }
-
-        .locked-section .balloon {
-            width: 120px;
-            height: auto;
-            margin: 0 10px;
         }
 
         .locked-section p {
@@ -119,7 +98,7 @@
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="/">Easy Store</a>
+        <a class="navbar-brand" href="/">Easy Toy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -136,8 +115,8 @@
 
 <div class="hero-section">
     <div class="container">
-        <h1>Bem-vindo à Easy Store</h1>
-        <p>A loja de brinquedos mais divertida e criativa!</p>
+        <h1>Bem-vindo à Easy Toy</h1>
+        <p>A loja de brinquedos mais tranquila e calma!</p>
 
         <div sec:authorize="!isAuthenticated()">
             <a href="/login" class="btn btn-primary btn-lg me-2">Login</a>
