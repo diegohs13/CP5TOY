@@ -3,6 +3,8 @@
 
 Projeto de desenvolvimento com Spring Boot Security para gerenciamento de um sistema de CRUD de brinquedos da loja Easy Toy.
 
+- DEPLOY: https://cp5toy.onrender.com/
+
 ## Integrantes
 
 - MATHEUS MATOS - RM:99792
@@ -41,6 +43,7 @@ O usuario pode cadastrar um brinquedo no sistema, inserindo os seguintes dados:
   ![application](img/SpringApp.png)
 
 - Acesse o endereço `http://localhost:8080/` para acessar a aplicação.
+- Após isso, realize o login ou se registre para acessar a loja de brinquedos.
 
 ## Nome da Aplicação
 Easy Toy
